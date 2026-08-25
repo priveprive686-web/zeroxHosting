@@ -1,0 +1,630 @@
+/* =========================================
+   ZEROXHOSTING - MINECRAFT HOSTING
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% -10%, rgba(40, 120, 255, 0.14), transparent 35%),
+        #070a0f;
+    color: #ffffff;
+    font-family: 'Inter', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+header {
+    width: 100%;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 7%;
+
+    background: rgba(7, 10, 15, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header > img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+
+    margin-right: 12px;
+
+    filter: drop-shadow(0 0 12px rgba(45, 140, 255, 0.35));
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+
+    padding: 10px 15px;
+
+    color: #aeb7c5;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border-radius: 9px;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
+}
+
+nav ul li:last-child a {
+    color: #ffffff;
+    background: #1677ff;
+    box-shadow: 0 6px 20px rgba(22, 119, 255, 0.22);
+}
+
+nav ul li:last-child a:hover {
+    background: #2682ff;
+}
+
+/* =========================================
+   PACKAGE GRID
+   ========================================= */
+
+body {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: 24px;
+
+    padding-bottom: 80px;
+}
+
+/*
+   Header + footer moeten over de volledige
+   breedte blijven.
+*/
+
+header {
+    grid-column: 1 / -1;
+}
+
+footer {
+    grid-column: 1 / -1;
+}
+
+/* =========================================
+   PACKAGE CARD
+   ========================================= */
+
+.package-card {
+    position: relative;
+
+    width: 100%;
+    min-height: 430px;
+
+    padding: 26px;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* subtle glow */
+
+.package-card::before {
+    content: "";
+
+    position: absolute;
+    top: -100px;
+    right: -100px;
+
+    width: 220px;
+    height: 220px;
+
+    background: rgba(25, 125, 255, 0.12);
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+.package-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(40, 135, 255, 0.45);
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.42),
+        0 0 35px rgba(25, 120, 255, 0.08);
+}
+
+/* =========================================
+   CARD HEADER
+   ========================================= */
+
+.card-header {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+}
+
+.minecraft-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.minecraft-icon img {
+    width: 42px;
+    height: 42px;
+
+    object-fit: contain;
+
+    image-rendering: pixelated;
+
+    transition: transform 0.25s ease;
+}
+
+.package-card:hover .minecraft-icon img {
+    transform: scale(1.08) rotate(2deg);
+}
+
+.title-group h3 {
+    font-size: 22px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+    margin-bottom: 5px;
+}
+
+.ram-text {
+    color: #8994a5;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* =========================================
+   FEATURES
+   ========================================= */
+
+.features-list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 0;
+    margin: 0 0 26px;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #b8c0cc;
+
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.features-list .icon {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 8px;
+
+    font-size: 13px;
+}
+
+.features-list .discover {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.features-list .discover .icon {
+    background: rgba(22, 119, 255, 0.12);
+    border-color: rgba(22, 119, 255, 0.2);
+}
+
+/* =========================================
+   PRICE
+   ========================================= */
+
+.price-section {
+    display: flex;
+    align-items: baseline;
+
+    gap: 6px;
+
+    margin-top: auto;
+    margin-bottom: 20px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.price {
+    color: #ffffff;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.period {
+    color: #7f8998;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* =========================================
+   ORDER BUTTON
+   ========================================= */
+
+.order-btn {
+    width: 100%;
+
+    padding: 14px 18px;
+
+    border: 0;
+    border-radius: 11px;
+
+    background: #1677ff;
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(22, 119, 255, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.order-btn:hover {
+    background: #2783ff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(22, 119, 255, 0.28);
+}
+
+.order-btn:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    margin-top: 30px;
+
+    padding: 35px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    background: #05070b;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+footer li {
+    list-style: none;
+}
+
+footer a {
+    color: #8994a5;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+footer p {
+    width: 100%;
+
+    text-align: center;
+
+    color: #5f6876;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 1050px) {
+
+    body {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+        padding: 0 25px 60px;
+    }
+
+    header {
+        margin-left: -25px;
+        margin-right: -25px;
+
+        padding: 0 25px;
+    }
+
+    nav ul {
+        gap: 2px;
+    }
+
+    nav ul li a {
+        padding: 9px 10px;
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+
+        gap: 18px;
+
+        padding: 0 15px 40px;
+    }
+
+    header {
+        width: calc(100% + 30px);
+
+        height: auto;
+        min-height: 72px;
+
+        margin-left: -15px;
+        margin-right: -15px;
+
+        padding: 14px 18px;
+
+        flex-wrap: wrap;
+    }
+
+    header > img {
+        width: 36px;
+        height: 36px;
+    }
+
+    header h1 {
+        font-size: 18px;
+    }
+
+    nav {
+        width: 100%;
+
+        margin: 12px 0 0;
+    }
+
+    nav ul {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    nav ul li a {
+        padding: 8px 9px;
+        font-size: 12px;
+    }
+
+    .package-card {
+        min-height: 0;
+
+        padding: 22px;
+    }
+
+    .card-header {
+        margin-bottom: 22px;
+    }
+
+    .minecraft-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .minecraft-icon img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .title-group h3 {
+        font-size: 20px;
+    }
+
+    .price {
+        font-size: 27px;
+    }
+
+    footer {
+        width: calc(100% + 30px);
+
+        margin-left: -15px;
+        margin-right: -15px;
+
+        padding: 30px 15px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 420px) {
+
+    nav ul {
+        gap: 3px;
+    }
+
+    nav ul li a {
+        padding: 7px 6px;
+        font-size: 11px;
+    }
+
+    .package-card {
+        padding: 19px;
+    }
+
+    .features-list li {
+        font-size: 13px;
+    }
+}
+/* ---------------
+zerox hsoting
+frontpage
+-----------------*/
+h1 {
+    color: white;
+    font-size: 40px;
+}
+
+p {
+    color: gray;
+}
+
+button {
+    background: blue;
+}
+
+h2 {
+    color: white;
+    font-size: 50px;
+}
+
+h3 {
+    color: rgb(0, 191, 255);
+    font-size: 50px;
+}
